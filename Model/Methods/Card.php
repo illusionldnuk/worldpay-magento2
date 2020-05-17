@@ -29,7 +29,7 @@ class Card extends WorldpayPayments {
         $_serializedAdditionalData = serialize($_tmpData['additional_data']);
         $additionalDataRef = $_serializedAdditionalData;
         $additionalDataRef = unserialize($additionalDataRef);
-        $_paymentToken = $additionalDataRef['paymentToken'];
+        $_paymentToken = $additionalDataRef['paymentToken'] ?? '';
         $_saveCard = isset($additionalDataRef['saveCard']) ? $additionalDataRef['saveCard'] : false;
         parent::assignData($data);
         $infoInstance = $this->getInfoInstance();

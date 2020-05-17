@@ -113,7 +113,7 @@ class WorldpayPayments extends AbstractMethod
         $_serializedAdditionalData = serialize($_tmpData['additional_data']);
         $additionalDataRef = $_serializedAdditionalData;
         $additionalDataRef = unserialize($additionalDataRef);
-        $_paymentToken = $additionalDataRef['paymentToken'];
+        $_paymentToken = $additionalDataRef['paymentToken'] ?? '';
 
         $infoInstance = $this->getInfoInstance();
         $infoInstance->setAdditionalInformation('payment_token', $_paymentToken);
